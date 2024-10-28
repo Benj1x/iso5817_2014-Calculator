@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/navbar_widget.dart';
+
 class Grading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class Grading extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [],
-        ));
+        ),
+        bottomNavigationBar: NavBarWidget());
   }
 }
