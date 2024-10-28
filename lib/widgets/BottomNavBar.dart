@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Flutter code sample for [BottomNavigationBar].
 
 void main() => runApp(const BottomNavBarISO());
 

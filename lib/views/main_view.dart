@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import '../controllers/weld_controller.dart';
+import 'package:provider/provider.dart';
+//import '../controllers/weld_controller.dart';
+import '../controllers/grading_controller.dart';
 import '../widgets/navbar_widget.dart';
 
 class MainView extends StatefulWidget {
-  final WeldController controller;
-
-  _MainViewState({Key? key, required this.controller}) : super(key: key);
-
   @override
   _MainViewState createState() => _MainViewState();
 }
@@ -14,6 +12,7 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
+    final gradingController = Provider.of<GradingController>(context);
     return Scaffold(
         backgroundColor: Color(0xffffffff),
         body: Column(
@@ -33,7 +32,7 @@ class _MainViewState extends State<MainView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
+                const Text(
                   "Fillet weld",
                   textAlign: TextAlign.start,
                   overflow: TextOverflow.clip,
@@ -399,6 +398,6 @@ class _MainViewState extends State<MainView> {
             ),
           ],
         ),
-        bottomNavigationBar: NavBarWidget());
+    );
   }
 }

@@ -11,4 +11,7 @@ class CounterController {
   void incrementCounter() {
     _model.incrementCounter();
   }
+  void setCounter() {
+    _model.setCounter();
+  }
 }

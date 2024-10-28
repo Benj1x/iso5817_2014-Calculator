@@ -1,16 +1,22 @@
 // lib/controllers/counter_controller.dart
-import 'package:iso5817_2014/models/grading_model.dart';
+import 'package:flutter/cupertino.dart';
 
-import '../models/counter_model.dart';
+import '../models/grading_model.dart';
 
-class GradingController {
+class GradingController with ChangeNotifier{
   final GradingModel _model;
 
-  CounterController(this._model);
+  GradingController(this._model);
 
-  int get counter => _model.counter;
+  double get plateThickness => _model.plateThickness;
+  double get weldTThickness => _model.weldTThickness;
+  double get weldWidth => _model.weldWidth;
 
-  void incrementCounter() {
-    _model.incrementCounter();
+  bool get gradeB => _model.gradeB;
+  bool get gradeC => _model.gradeC;
+  bool get gradeD => _model.gradeD;
+
+  void setCounter() {
+    _model.setCounter();
   }
 }
