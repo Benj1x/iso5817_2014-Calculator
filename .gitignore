@@ -1,1 +1,6 @@
 /build/
+/.dart_tool
+/macos
+/.dart_tool
+/windows
+/linux

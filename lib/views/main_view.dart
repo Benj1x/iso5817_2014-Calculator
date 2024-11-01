@@ -86,7 +86,7 @@ class _MainViewState extends State<MainView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
+                const Text(
                   "Wall or plate thickness (nominal size) t [mm]:",
                   textAlign: TextAlign.left,
                   overflow: TextOverflow.clip,
@@ -108,7 +108,7 @@ class _MainViewState extends State<MainView> {
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 14,
-                      color: Color(0xff000000),
+                      color: Color(0xff000000)
                     ),
                     decoration: InputDecoration(
                       disabledBorder: UnderlineInputBorder(
