@@ -21,7 +21,7 @@ class _CounterViewState extends State<CounterView> {
       body: Center(
         child: Text(
           'Counter: ${widget.controller.counter}',
-          style: TextStyle(fontSize: 24),
+          style: const TextStyle(fontSize: 24),
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -30,7 +30,7 @@ class _CounterViewState extends State<CounterView> {
             widget.controller.setCounter();
           });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

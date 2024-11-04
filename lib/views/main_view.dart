@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iso5817_2014/models/form_model.dart';
 import 'package:provider/provider.dart';
 //import '../controllers/weld_controller.dart';
 import '../controllers/grading_controller.dart';
@@ -10,6 +11,18 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
+
+  void _submitForm(GradingController gradingController) {
+    final formModel = FormModel(
+      weldType: "", 
+      t: "", 
+      a: "", 
+      b: "", 
+      level: ""
+    );
+    gradingController.setData(formModel);
+  }
+
   @override
   Widget build(BuildContext context) {
     final gradingController = Provider.of<GradingController>(context);
@@ -226,6 +239,7 @@ class _MainViewState extends State<MainView> {
                   child: TextField(
                     controller: TextEditingController(),
                     obscureText: false,
+                    keyboardType: TextInputType.number,
                     textAlign: TextAlign.start,
                     maxLines: 1,
                     style: TextStyle(
@@ -307,7 +321,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: () {},
               tileColor: Color(0x1f000000),
               activeColor: Color(0xff3a57e8),
               activeTrackColor: Color(0xff92c6ef),
@@ -335,7 +349,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: () {},
               tileColor: Color(0x1f000000),
               activeColor: Color(0xff3a57e8),
               activeTrackColor: Color(0xff62ed2b),
@@ -363,7 +377,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: () {},
               tileColor: Color(0x1f000000),
               activeColor: Color(0xff3a57e8),
               activeTrackColor: Color(0xff58e84c),
@@ -375,8 +389,8 @@ class _MainViewState extends State<MainView> {
               selected: false,
               selectedTileColor: Color(0x42000000),
             ),
-            const MaterialButton(
-              onPressed: () {},
+            MaterialButton(
+              onPressed: (){},
               color: Color(0xffffffff),
               elevation: 0,
               shape: RoundedRectangleBorder(

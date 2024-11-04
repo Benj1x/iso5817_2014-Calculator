@@ -23,10 +23,10 @@ class _GradingViewState extends State<GradingView> {
           centerTitle: false,
           automaticallyImplyLeading: false,
           backgroundColor: Color(0xff3a57e8),
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           ),
-          title: Text(
+          title: const Text(
             "AppBar",
             style: TextStyle(
               fontWeight: FontWeight.w400,
@@ -35,13 +35,13 @@ class _GradingViewState extends State<GradingView> {
               color: Color(0xff000000),
             ),
           ),
-          leading: Icon(
+          leading: const Icon(
             Icons.arrow_back,
             color: Color(0xff212435),
             size: 24,
           ),
         ),
-        body: Column(
+        body: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
