@@ -1,6 +1,7 @@
 
 import 'dart:ffi';
 import 'dart:math';
+import 'dart:developer' as developer;
 
 import 'package:iso5817_2014/models/form_model.dart';
 
@@ -22,6 +23,10 @@ class GradingModel
   }
 
   void setData(FormModel formModel){
+    String test = formModel.t;
+    developer.log(test);
+    developer.log(formModel.t);
+    developer.log(formModel.b);
     _plateThickness = double.parse(formModel.t);
     _weldTThickness = double.parse(formModel.a);
     _weldWidth = double.parse(formModel.b);

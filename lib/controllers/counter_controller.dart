@@ -15,5 +15,4 @@ class CounterController {
     _model.setCounter();
   }
 
-  void getData(){}
 }
