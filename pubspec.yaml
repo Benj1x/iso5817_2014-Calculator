@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
 
@@ -90,3 +91,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+#flutter_icons:
+#  android: true
+#  ios: true
+#  image_path: "lib/assets/images/logo-white.png" # The white logo image
+#  adaptive_icon_background: "#000000" # black
+#  adaptive_icon_foreground: "lib/assets/images/logo-white.png" # Same image for the foreground (white logo)

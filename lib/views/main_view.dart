@@ -20,7 +20,7 @@ class _MainViewState extends State<MainView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Divider(
+            const Divider(
               color: Color(0xffffffff),
               height: 16,
               thickness: 0,
@@ -59,7 +59,7 @@ class _MainViewState extends State<MainView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
+                const Text(
                   "Butt weld",
                   textAlign: TextAlign.start,
                   overflow: TextOverflow.clip,
@@ -97,7 +97,7 @@ class _MainViewState extends State<MainView> {
                     color: Color(0xff000000),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
                   child: TextField(
                     controller: TextEditingController(),
@@ -148,7 +148,7 @@ class _MainViewState extends State<MainView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
+                const Text(
                   "Text",
                   textAlign: TextAlign.start,
                   overflow: TextOverflow.clip,
@@ -159,7 +159,7 @@ class _MainViewState extends State<MainView> {
                     color: Color(0xff000000),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
                   child: TextField(
                     controller: TextEditingController(),
@@ -210,7 +210,7 @@ class _MainViewState extends State<MainView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Text(
+                const Text(
                   "Text",
                   textAlign: TextAlign.start,
                   overflow: TextOverflow.clip,
@@ -221,7 +221,7 @@ class _MainViewState extends State<MainView> {
                     color: Color(0xff000000),
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   flex: 1,
                   child: TextField(
                     controller: TextEditingController(),
@@ -267,14 +267,14 @@ class _MainViewState extends State<MainView> {
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               color: Color(0xffffffff),
               height: 16,
               thickness: 0,
               indent: 0,
               endIndent: 0,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: Align(
                 alignment: Alignment(-0.9, 0.0),
@@ -291,7 +291,7 @@ class _MainViewState extends State<MainView> {
                 ),
               ),
             ),
-            SwitchListTile(
+            const SwitchListTile(
               value: true,
               title: Text(
                 "B",
@@ -319,7 +319,7 @@ class _MainViewState extends State<MainView> {
               selected: false,
               selectedTileColor: Color(0x42000000),
             ),
-            SwitchListTile(
+            const SwitchListTile(
               value: true,
               title: Text(
                 "C",
@@ -347,7 +347,7 @@ class _MainViewState extends State<MainView> {
               selected: false,
               selectedTileColor: Color(0x42000000),
             ),
-            SwitchListTile(
+            const SwitchListTile(
               value: true,
               title: Text(
                 "D",
@@ -375,7 +375,7 @@ class _MainViewState extends State<MainView> {
               selected: false,
               selectedTileColor: Color(0x42000000),
             ),
-            MaterialButton(
+            const MaterialButton(
               onPressed: () {},
               color: Color(0xffffffff),
               elevation: 0,
@@ -384,6 +384,9 @@ class _MainViewState extends State<MainView> {
                 side: BorderSide(color: Color(0xff808080), width: 1),
               ),
               padding: EdgeInsets.all(16),
+              textColor: Color(0xff000000),
+              height: 40,
+              minWidth: 140,
               child: Text(
                 "Calculate Acceptance level",
                 style: TextStyle(
@@ -392,9 +395,6 @@ class _MainViewState extends State<MainView> {
                   fontStyle: FontStyle.normal,
                 ),
               ),
-              textColor: Color(0xff000000),
-              height: 40,
-              minWidth: 140,
             ),
           ],
         ),
