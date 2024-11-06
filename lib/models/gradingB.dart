@@ -5,7 +5,7 @@ import 'dart:ffi';
 import 'package:iso5817_2014/util/gradingStruct.dart';
 class gradingB{
 //**dawad */
-Gradingstruct BGrading(a, t, b, isFilletWeld) {
+Gradingstruct BGrading(double s, double a, double t, double b, bool isFilletWeld) {
     Gradingstruct grade = Gradingstruct(BCrack(t), BCraterCrack(t), BSurfacePore(), BEndCraterPipe(), BLackOfFusion(), BMicroLackOfFusion(), BIncompleteRootPenetration(),
         BIntermittenUndercut(t), BShrinkageGroove(t), BExcessWeldMetal(b), BExcessiveConvexity(b), 
         BExcessPenetration(b, t), BIncorrectWeldToe(isFilletWeld), BOverlap(), BNonFilledWeld(t),
@@ -19,7 +19,7 @@ Gradingstruct BGrading(a, t, b, isFilletWeld) {
 /// Revne/Crack
 /// @param {number} t Wall or plate thickness
 /// @returns {String} Viable grade 
-String BCrack(t) {
+String BCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted / Ikke tilladt";
     }
@@ -30,7 +30,7 @@ String BCrack(t) {
 /// Kraterrevne/Crater crack
 /// @param {number} td Wall or plate thickness
 /// @returns {String} Viable grade 
-String BCraterCrack(t) {
+String BCraterCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted / Ikke tilladt";
     }
@@ -74,7 +74,7 @@ String BIncompleteRootPenetration() {
 /// (Kontinueret) Lokal sidekærv / (Continuos) Intermittent undercut
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String BIntermittenUndercut(t) {
+String BIntermittenUndercut(double t) {
     if (t > 3) {
         return "h <= ${(0.05 * t).toStringAsFixed(1)} (max 0,5mm)";
     }
@@ -85,7 +85,7 @@ String BIntermittenUndercut(t) {
 /// Rodkærv/Shrinkage groove
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String BShrinkageGroove(t) {
+String BShrinkageGroove(double t) {
     if (t > 3) {
         return "h <= ${(0.05 * t).toStringAsFixed(1)} (max 0,5mm)";
     }
@@ -95,7 +95,7 @@ String BShrinkageGroove(t) {
 
 /// MikroBindingsfejl /*Micro lack of fusion
 /// @returns {String} First viable grade 
-String BExcessWeldMetal(b) {
+String BExcessWeldMetal(double b) {
     //For a B
     return "h <= ${(1.0 + 0.1 * b).toStringAsFixed(1)} (max 5mm)";
 }
@@ -104,7 +104,7 @@ String BExcessWeldMetal(b) {
 /// Konveks sømoverflade/Excessive convexity
 /// @param {number} b Width of weld reinforcement
 /// @returns {String} First viable grade 
-String BExcessiveConvexity(b) {
+String BExcessiveConvexity(double b) {
     //For a B
     return "h <= ${(1.0 + 0.1 * b).toStringAsFixed(1)} (max 3 mm)*";
 }
@@ -114,7 +114,7 @@ String BExcessiveConvexity(b) {
 /// @param {number} b Width of weld reinforcement
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BExcessPenetration(b, t) {
+String BExcessPenetration(double b, double t) {
     if (t > 3) {
         return "h <= ${(1 + 0.2 * b).toStringAsFixed(1)} (max 3 mm)*";
     }
@@ -128,7 +128,7 @@ String BExcessPenetration(b, t) {
 /// Forkert overgang / Incorrect Weld toe
 /// @param {boolean} isFilletWeld If it is a fillet weld or not
 /// @returns {String} Acceptable angle (For D, alpha is the same for fillet and butt welds) 
-String BIncorrectWeldToe(isFilletWeld) {
+String BIncorrectWeldToe(bool isFilletWeld) {
     if (isFilletWeld) {
         return "α => 110°";
     }
@@ -147,7 +147,7 @@ String BOverlap() {
 /// Mangelfuld Opfyldning / Non filled weld
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BNonFilledWeld(t) {
+String BNonFilledWeld(double t) {
     if (t > 3) {
         return "h <= ${(0.05 * t).toStringAsFixed(1)} (max 0,5 mm)";
     }
@@ -164,7 +164,7 @@ String BBurnThrough() {
 /// @param {number} t Height or width of imperfection
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @returns {String} First viable grade 
-String BExcessiveAsymmetryFilletWeld(t, a) {
+String BExcessiveAsymmetryFilletWeld(double t, double a) {
     if (t >= 0.5) {
         return "h <= ${(1.5 + 0.15 * a).toStringAsFixed(1)}";
     }
@@ -175,7 +175,7 @@ String BExcessiveAsymmetryFilletWeld(t, a) {
 /// Indadvælving i roden / Root concavity
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BRootConcavity(t) {
+String BRootConcavity(double t) {
     if (t > 3) {
         return "h <= ${(0.05 * t).toStringAsFixed(1)} (max 0,5mm)*";
     }
@@ -208,7 +208,7 @@ String BInsufficientThroatThickness() {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BExcessiveThroatThickness(a, t) {
+String BExcessiveThroatThickness(double t, double a) {
     if (t <= 0.5) {
         return "h <= ${(1.0 + 0.15 * a)} (max 3 mm)";
     }
@@ -226,7 +226,7 @@ String BStrayArc() {
 /// Svejsesprøjt / Spatter
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BSpatter(t) {
+String BSpatter(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse / Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -238,7 +238,7 @@ String BSpatter(t) {
 /// Anløbsfarve / Tempercolour
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BTemperColour(t) {
+String BTemperColour(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse / Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -249,7 +249,7 @@ String BTemperColour(t) {
 /// Forsætning / Linear misalignment
 /// @param {number} t Wall or plate thickness (nominal size)
 /// @returns {String} First viable grade 
-String BLinearMisalignment(t) {
+String BLinearMisalignment(double t) {
     if (t > 3) {
         return "h <= ${(0.1 * t).toStringAsFixed(1)} (max 3 mm)";
     }
@@ -269,7 +269,7 @@ String BLinearMisalignment(t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {String} First viable grade 
-String BIncorrectRootGapOrFilletWelds(a, t) {
+String BIncorrectRootGapOrFilletWelds(double t, double a) {
     if (t > 3) {
         return "h <= ${(0.5 + 0.1 * a).toStringAsFixed(1)} (max 2 mm)";
     }

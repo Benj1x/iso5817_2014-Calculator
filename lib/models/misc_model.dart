@@ -1,4 +1,3 @@
-
 class MiscModel
 {
   double _plateThickness = 0.0;

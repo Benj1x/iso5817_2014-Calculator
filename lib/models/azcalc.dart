@@ -1,3 +1,4 @@
+//Obviously code I copied from the JS version that's getting deprecated
 function CalculateAToZ(){
     z = document.getElementById("ZValue").value;
     return cos45 * z;

@@ -2,7 +2,10 @@
 import 'dart:ffi';
 import 'dart:math';
 import 'dart:developer' as developer;
-
+import 'package:iso5817_2014/models/gradingB.dart';
+import 'package:iso5817_2014/models/gradingC.dart';
+import 'package:iso5817_2014/models/gradingD.dart';
+import 'package:iso5817_2014/util/gradingStruct.dart';
 import 'package:iso5817_2014/models/form_model.dart';
 
 class GradingModel
@@ -24,11 +27,16 @@ class GradingModel
 
   void setData(FormModel formModel){
     String test = formModel.t;
-    developer.log(test);
-    developer.log(formModel.t);
-    developer.log(formModel.b);
-    _plateThickness = double.parse(formModel.t);
-    _weldTThickness = double.parse(formModel.a);
-    _weldWidth = double.parse(formModel.b);
+  }
+  Gradingstruct calcData( ){
+    if(gradeB){
+      return BGrading(a, t, b, isFilletWeld)
+    }
+    else if (gradeC){
+      return CGrading(a, t, b, isFilletWeld)
+    }
+    else {
+      return DGrading(s, a, t, b, isFilletWeld)
+    }
   }
 }

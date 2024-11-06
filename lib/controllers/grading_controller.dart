@@ -17,11 +17,10 @@ class GradingController with ChangeNotifier{
   bool get gradeC => _model.gradeC;
   bool get gradeD => _model.gradeD;
 
-  void setCounter() {
-    _model.setCounter();
+  void calculateResults(FormModel formModel){
+    _model.setData(formModel);
+    _model.calcData();
   }
 
-  void setData(FormModel formModel){
-    _model.setData(formModel);
-  }
+
 }
