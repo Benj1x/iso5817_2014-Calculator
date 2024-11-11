@@ -28,15 +28,15 @@ class GradingModel
   void setData(FormModel formModel){
     String test = formModel.t;
   }
-  Gradingstruct calcData( ){
-    if(gradeB){
-      return BGrading(a, t, b, isFilletWeld)
-    }
-    else if (gradeC){
-      return CGrading(a, t, b, isFilletWeld)
-    }
-    else {
-      return DGrading(s, a, t, b, isFilletWeld)
-    }
-  }
+  // Gradingstruct calcData(){
+  //   if(gradeB){
+  //     return BGrading(a, t, b, isFilletWeld)
+  //   }
+  //   else if (gradeC){
+  //     return CGrading(a, t, b, isFilletWeld)
+  //   }
+  //   else {
+  //     return DGrading(s, a, t, b, isFilletWeld)
+  //   }
+  // }
 }

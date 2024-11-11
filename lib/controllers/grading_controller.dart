@@ -19,7 +19,7 @@ class GradingController with ChangeNotifier{
 
   void calculateResults(FormModel formModel){
     _model.setData(formModel);
-    _model.calcData();
+    //_model.calcData();
   }
 
 

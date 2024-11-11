@@ -19,7 +19,7 @@ Gradingstruct CGrading(double s, double a, double t, double b, bool isFilletWeld
 /// Revne/Crack
 /// @param {number} t Wall or plate thickness
 /// @returns {string} Viable grade 
-String CCrack(double t) {
+String? CCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -29,7 +29,7 @@ String CCrack(double t) {
 /// Kraterrevne/Crater crack
 /// @param {number} t Wall or plate thickness
 /// @returns {string} Viable grade 
-String CCraterCrack(double t) {
+String? CCraterCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -40,7 +40,7 @@ String CCraterCrack(double t) {
 /// @param {number} s weld thickness 
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CSurfacePore(double s, double t) {
+String? CSurfacePore(double s, double t) {
     if (t >= 0.5) {
         return "t Not permitted/Ikke tilladt";
     }
@@ -51,7 +51,7 @@ String CSurfacePore(double s, double t) {
 /// Åben kraterpore/End crater pipe
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CEndCraterPipe(double t) {
+String? CEndCraterPipe(double t) {
     if (t > 3) {
         return "h <= ${0.1 * t} (max 1 mm)";
     }
@@ -60,13 +60,13 @@ String CEndCraterPipe(double t) {
  
 /// Bindingsfejl /* lack of fusion
 /// @returns {string} First viable grade 
-String CLackOfFusion() {
+String? CLackOfFusion() {
     return "Not permitted/Ikke tilladt";
 }
  
 /// MikroBindingsfejl /*Micro lack of fusion
 /// @returns {string} First viable grade 
-String CMicroLackOfFusion() {
+String? CMicroLackOfFusion() {
     return "Not permitted/Ikke tilladt";
     //Mikrobindingsfejl kun detekterbare ved mikroundersøglse / Only detected by micro examination
 }
@@ -74,7 +74,7 @@ String CMicroLackOfFusion() {
 /// Calculate Incomplete root penetration 
 /// Rodfejl/Incomplete root penetration
 /// @returns {string} First viable grade 
-String CIncompleteRootPenetration() {
+String? CIncompleteRootPenetration() {
     return "Not permitted/Ikke tilladt";
 }
 
@@ -82,7 +82,7 @@ String CIncompleteRootPenetration() {
 /// (Kontinueret) Lokal sidekærv / (Continuos) Intermittent undercut
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CIntermittenUndercut(double t) {
+String? CIntermittenUndercut(double t) {
     if (t > 3) {
         return "h <= ${0.1 * t} (max 0.5mm)";
     }
@@ -96,7 +96,7 @@ String CIntermittenUndercut(double t) {
 /// Rodkærv/Shrinkage groove
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CShrinkageGroove(double t) {
+String? CShrinkageGroove(double t) {
     if (t > 3) {
         return "h <= ${0.1 * t} (max 1 mm)";
     }
@@ -111,7 +111,7 @@ String CShrinkageGroove(double t) {
 /// @param {number} b Width of weld reinforcement
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CExcessWeldMetal(double b, double t) {
+String? CExcessWeldMetal(double b, double t) {
     if (t >= 0.5) {
         return "h <= ${1.0 + 0.15 * b} (max 7 mm)";
     }
@@ -122,7 +122,7 @@ String CExcessWeldMetal(double b, double t) {
 /// @param {number} b Width of weld reinforcement
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CExcessiveConvexity(double b, double t) {
+String? CExcessiveConvexity(double b, double t) {
     if (t >= 0.5) {
         return "h <= ${1.0 + 0.15 * b} (max 4 mm)";
     }
@@ -133,7 +133,7 @@ String CExcessiveConvexity(double b, double t) {
 /// @param {number} b Width of weld reinforcement
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CExcessPenetration(double b, double t) {
+String? CExcessPenetration(double b, double t) {
     if (t > 3) {
         return "h <= ${1.0 + 0.6 * b} (max 4 mm)";
     }
@@ -146,7 +146,7 @@ String CExcessPenetration(double b, double t) {
 /// Forkert overgang / Incorrect Weld toe
 /// @param {boolean} isFilletWeld If it is a fillet weld or not
 /// @returns {string} Acceptable angle (For D, alpha is the same for fillet and butt welds) 
-String CIncorrectWeldToe(bool isFilletWeld) {
+String? CIncorrectWeldToe(bool isFilletWeld) {
     if (isFilletWeld) {
         return "α => 100°";
     }
@@ -156,7 +156,7 @@ String CIncorrectWeldToe(bool isFilletWeld) {
 /// Calculate Overlap
 /// Overløbning/Overlap
 /// @returns {string} First viable grade 
-String COverlap() {
+String? COverlap() {
     return "Not permitted/Ikke tilladt";
 }
 
@@ -164,7 +164,7 @@ String COverlap() {
 /// Mangelfuld Opfyldning / Non filled weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CNonFilledWeld(double t) {
+String? CNonFilledWeld(double t) {
     if (t > 3) {
         return "h <= ${0.1 * t} (max 1 mm)";
     }
@@ -174,7 +174,7 @@ String CNonFilledWeld(double t) {
 }
 
 ///Gennembrænding/Burn through
-String CBurnThrough() {
+String? CBurnThrough() {
     return "Not permitted/Ikke tilladt";
 }
 
@@ -183,7 +183,7 @@ String CBurnThrough() {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CExcessiveAsymmetryFilletWeld(double a, double t) {
+String? CExcessiveAsymmetryFilletWeld(double a, double t) {
     if (t >= 0.5) {
         return "h <= ${2 + 0.15 * a}";
     }
@@ -193,7 +193,7 @@ String CExcessiveAsymmetryFilletWeld(double a, double t) {
 /// Indadvælving i roden / Root concavity
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CRootConcavity(double t) {
+String? CRootConcavity(double t) {
     if (t > 3) {
         return "h <= ${0.1 * t} (max 1mm)*";
     }
@@ -206,7 +206,7 @@ String CRootConcavity(double t) {
 /// Porøsitet i rodvulst/Root porosity
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CRootPorosity(double t) {
+String? CRootPorosity(double t) {
     if (t <= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -217,7 +217,7 @@ String CRootPorosity(double t) {
 /// Fejl ved genstart/Poor start
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CPoorStart(double t) {
+String? CPoorStart(double t) {
     if (t <= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -229,7 +229,7 @@ String CPoorStart(double t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CInsufficientThroatThickness(double a, double t) {
+String? CInsufficientThroatThickness(double a, double t) {
     if (t > 3) {
         return "h <= ${0.3 + 0.1 * a} (max 1mm)*";
     }
@@ -243,7 +243,7 @@ String CInsufficientThroatThickness(double a, double t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CExcessiveThroatThickness(double a, double t) {
+String? CExcessiveThroatThickness(double a, double t) {
     if (t <= 0.5) {
         return "h <= ${1 + 0.2 * a} (max 4 mm)";
     }
@@ -252,7 +252,7 @@ String CExcessiveThroatThickness(double a, double t) {
 /// Calculate Stray arc
 /// Tændsår / Stray arc
 /// @returns {string} First viable grade 
-String CStrayArc() {
+String? CStrayArc() {
     return "Not permitted/Ikke tilladt";
 }
 
@@ -260,7 +260,7 @@ String CStrayArc() {
 /// Svejsesprøjt / Spatter
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CSpatter(double t) {
+String? CSpatter(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse/Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -270,7 +270,7 @@ String CSpatter(double t) {
 /// Anløbsfarve / Tempercolour
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CTempercolour(double t) {
+String? CTempercolour(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse/Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -281,7 +281,7 @@ String CTempercolour(double t) {
 /// Forsætning / Linear misalignment
 /// @param {number} t Wall or plate thickness (nominal size)
 /// @returns {string} First viable grade 
-String CLinearMisalignment(double t) {
+String? CLinearMisalignment(double t) {
     if (t > 3) {
         return "h <= ${0.15 * t} (max 4 mm)";
     }
@@ -299,7 +299,7 @@ String CLinearMisalignment(double t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String CIncorrectRootGapOrFilletWelds(double a, double t) {
+String? CIncorrectRootGapOrFilletWelds(double a, double t) {
     if (t > 3) {
         return "h <= ${0.5 + 0.2 * a} (max 3 mm)";
     }

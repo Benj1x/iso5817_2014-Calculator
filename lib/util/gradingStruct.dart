@@ -1,33 +1,33 @@
 import 'dart:ffi';
 
 class Gradingstruct {
- String Crack;
- String CraterCrack;
- String SurfacePore;
- String EndCraterPipe;
- String LackOfFusion;
- String MLackOfFusion;
- String IncompleteRPen;
- String InterUcut;
- String ShrinkGroove;
- String ExcessWeld;
- String ExcessConvex;
- String ExcessPen;
- String IncorrectWToe;
- String Overlap;
- String NonFW;
- String BurnThrough;
- String ExcessAsymmFW;
- String RootConcav;
- String RootPoro;
- String PoorStart;
- String InsuffTT;
- String ExcessTT;
- String StrayArc;
- String Spatter;
- String TemperColour;
- String LinearMis;
- String IncorrRootGapOrFW;
+ String? Crack;
+ String? CraterCrack;
+ String? SurfacePore;
+ String? EndCraterPipe;
+ String? LackOfFusion;
+ String? MLackOfFusion;
+ String? IncompleteRPen;
+ String? InterUcut;
+ String? ShrinkGroove;
+ String? ExcessWeld;
+ String? ExcessConvex;
+ String? ExcessPen;
+ String? IncorrectWToe;
+ String? Overlap;
+ String? NonFW;
+ String? BurnThrough;
+ String? ExcessAsymmFW;
+ String? RootConcav;
+ String? RootPoro;
+ String? PoorStart;
+ String? InsuffTT;
+ String? ExcessTT;
+ String? StrayArc;
+ String? Spatter;
+ String? TemperColour;
+ String? LinearMis;
+ String? IncorrRootGapOrFW;
 
  Gradingstruct(this.Crack,
  this.CraterCrack,

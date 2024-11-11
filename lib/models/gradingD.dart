@@ -20,7 +20,7 @@ Gradingstruct DGrading(double s, double a, double t, double b, bool isFilletWeld
 /// Revne/Crack
 /// @param {number} t Wall or plate thickness
 /// @returns {string} Viable grade 
-String DCrack(double t) {
+String? DCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -30,7 +30,7 @@ String DCrack(double t) {
 /// Kraterrevne/Crater crack
 /// @param {number} t Wall or plate thickness
 /// @returns {string} Viable grade 
-String DCraterCrack(double t) {
+String? DCraterCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
@@ -41,7 +41,7 @@ String DCraterCrack(double t) {
 /// @param {number} s weld thickness 
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DSurfacePore(double s, double t) {
+String? DSurfacePore(double s, double t) {
     if (t >= 0.5) {
         return "d <= ${(0.3 * s).toStringAsFixed(1)}";
     }
@@ -53,7 +53,7 @@ String DSurfacePore(double s, double t) {
 /// Åben kraterpore/End crater pipe
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DEndCraterPipe(double t) {
+String? DEndCraterPipe(double t) {
     if (t >= 0.5 && t < 3 && t != 2) {
         return "*h <= ${(0.2 * t).toStringAsFixed(1)}";
     }
@@ -65,13 +65,13 @@ String DEndCraterPipe(double t) {
 
 /// Bindingsfejl / lack of fusion
 /// @returns {string} First viable grade 
-String DLackOfFusion() {
+String? DLackOfFusion() {
     return "Not permitted/Ikke tilladt";
 }
 
 /// MikroBindingsfejl /*Micro lack of fusion
 /// @returns {string} First viable grade 
-String DMicroLackOfFusion() {
+String? DMicroLackOfFusion() {
     return "Not permitted/Ikke tilladt";
     //Mikrobindingsfejl kun detekterbare ved mikroundersøglse / Only detected by micro examination
 }
@@ -80,7 +80,7 @@ String DMicroLackOfFusion() {
 /// Rodfejl/Incomplete root penetration
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DIncompleteRootPenetration(double t) {
+String? DIncompleteRootPenetration(double t) {
     return "*h <= ${(0.2 * t).toStringAsFixed(1)}";
 }
 
@@ -88,7 +88,7 @@ String DIncompleteRootPenetration(double t) {
 /// (Kontinueret) Lokal sidekærv / (Continuos) Intermittent undercut
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DIntermittenUndercut(double t) {
+String? DIntermittenUndercut(double t) {
     if (t > 3) {
         return "h <= ${(0.2 * t).toStringAsFixed(1)} (max 1mm)";
     }
@@ -102,7 +102,7 @@ String DIntermittenUndercut(double t) {
 /// Rodkærv/Shrinkage groove
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DShrinkageGroove(double t) {
+String? DShrinkageGroove(double t) {
     if (t > 3) {
         return "h <= ${(0.2 + 0.1 * t).toStringAsFixed(1)}";
     }
@@ -115,7 +115,7 @@ String DShrinkageGroove(double t) {
 /// Overvulst/Excess weld metal
 /// @param {number} b Width of weld reinforcement
 /// @returns {string} First viable grade 
-String DExcessWeldMetal(double b) {
+String? DExcessWeldMetal(double b) {
     return "h <= ${(1.0 + 0.25 * b).toStringAsFixed(1)} (max 10mm)";
 }
 
@@ -123,7 +123,7 @@ String DExcessWeldMetal(double b) {
 /// Konveks sømoverflade/Excessive convexity
 /// @param {number} b Width of weld reinforcement
 /// @returns {string} First viable grade 
-String DExcessiveConvexity(double b) {
+String? DExcessiveConvexity(double b) {
     return "h <= ${(1.0 + 0.25 * b).toStringAsFixed(1)} (max 5mm)"; //(max 5 mm)
 }
 
@@ -132,7 +132,7 @@ String DExcessiveConvexity(double b) {
 /// @param {number} b Width of weld reinforcement
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DExcessPenetration(double b, double t) {
+String? DExcessPenetration(double b, double t) {
     if (t > 3) {
         return "h <= ${(1.0 + 1.6 * b).toStringAsFixed(1)} (max 5 mm)";
 
@@ -145,7 +145,7 @@ String DExcessPenetration(double b, double t) {
 /// Gets the acceptable angle for the weld toe
 /// Forkert overgang / Incorrect Weld toe
 /// @returns {string} Acceptable angle (For D, alpha is the same for fillet and butt welds) 
-String DIncorrectWeldToe() {
+String? DIncorrectWeldToe() {
     return "α => 90°";
 }
 
@@ -153,7 +153,7 @@ String DIncorrectWeldToe() {
 /// Overløbning/Overlap
 /// @param {number} b Width of weld reinforcement
 /// @returns {string} First viable grade 
-String DOverlap(double b) {
+String? DOverlap(double b) {
     return "h <= ${(0.2 * b).toStringAsFixed(1)}";
 }
 
@@ -161,7 +161,7 @@ String DOverlap(double b) {
 /// Mangelfuld Opfyldning / Non filled weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DNonFilledWeld(double t) {
+String? DNonFilledWeld(double t) {
     if (t > 3) {
         return "h <= ${(0.25 * t).toStringAsFixed(1)} (max 2 mm)";
     }
@@ -171,7 +171,7 @@ String DNonFilledWeld(double t) {
 }
 
 ///Gennembrænding/Burn through
-String DBurnThrough() {
+String? DBurnThrough() {
     return "Not permitted/Ikke tilladt";
 }
 
@@ -179,7 +179,7 @@ String DBurnThrough() {
 /// Ulige store ben/Excessive asymmetry of fillet weld
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @returns {string} First viable grade 
-String DExcessiveAsymmetryFilletWeld(double a) {
+String? DExcessiveAsymmetryFilletWeld(double a) {
     return "h <= ${(2 + 0.2 * a).toStringAsFixed(1)}";
 }
 
@@ -187,7 +187,7 @@ String DExcessiveAsymmetryFilletWeld(double a) {
 /// Indadvælving i roden / Root concavity
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DRootConcavity(double t) {
+String? DRootConcavity(double t) {
     if (t > 3) {
         return "h <= ${(0.2 * t).toStringAsFixed(1)} (max 2 mm)*";
     }
@@ -200,7 +200,7 @@ String DRootConcavity(double t) {
 /// Porøsitet i rodvulst/Root porosity
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DRootPorosity(double t) {
+String? DRootPorosity(double t) {
     if (t <= 0.5) {
         return "Locally permitted/Tilladt lokalt";
     }
@@ -211,7 +211,7 @@ String DRootPorosity(double t) {
 /// Fejl ved genstart/Poor start
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DPoorStart(double t) {
+String? DPoorStart(double t) {
     if (t <= 0.5) {
         return "Tilladt Grænsen afhænger af fejltypen opstået ved genstart./The limit depends on the type of Imperfection occurred due to restart.";
     }
@@ -223,7 +223,7 @@ String DPoorStart(double t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DInsufficientThroatThickness(double a, double t) {
+String? DInsufficientThroatThickness(double a, double t) {
     if (t > 3) {
         return "h <= ${(0.3 + 0.1 * a).toStringAsFixed(1)} (max 2mm)*";
     }
@@ -235,7 +235,7 @@ String DInsufficientThroatThickness(double a, double t) {
 /// Calculate Excessive Throat Thickness
 /// For stort a-mål / Excessive throat thickness
 /// @returns {string} First viable grade 
-String DExcessiveThroatThickness() {
+String? DExcessiveThroatThickness() {
     return "Unlimited/Ubegænset";
 }
 
@@ -243,7 +243,7 @@ String DExcessiveThroatThickness() {
 /// Tændsår / Stray arc
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DStrayArc(double t) {
+String? DStrayArc(double t) {
     if (t <= 0.5) {
         return "Tilladt, hvis egenskaberne I grundmaterialet ikke påvirkes. / Permitted if the properties of the parent metal are not affected";
     }
@@ -253,7 +253,7 @@ String DStrayArc(double t) {
 /// Svejsesprøjt / Spatter
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DSpatter(double t) {
+String? DSpatter(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse / Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -263,7 +263,7 @@ String DSpatter(double t) {
 /// Anløbsfarve / Tempercolour
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DTempercolour(double t) {
+String? DTempercolour(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse / Acceptance depends on application, e.g. material, corrosion protection";
     }
@@ -274,7 +274,7 @@ String DTempercolour(double t) {
 /// Forsætning / Linear misalignment
 /// @param {number} t Wall or plate thickness (nominal size)
 /// @returns {string} First viable grade 
-String DLinearMisalignment(double t) {
+String? DLinearMisalignment(double t) {
     if (t > 3) {
         return "h <= ${(0.25 * t).toStringAsFixed(1)} (max 5mm)";
     }
@@ -291,7 +291,7 @@ String DLinearMisalignment(double t) {
 /// @param {number} a Nominal throat thickness of the fillet weld
 /// @param {number} t Wall or plate thickness
 /// @returns {string} First viable grade 
-String DIncorrectRootGapOrFilletWelds(double a, double t) {
+String? DIncorrectRootGapOrFilletWelds(double a, double t) {
     if (t > 3) {
         return "h <= ${(0.5 + 0.1 * a).toStringAsFixed(1)}";
     }

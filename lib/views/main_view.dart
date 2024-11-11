@@ -15,16 +15,21 @@ class _MainViewState extends State<MainView> {
    final TextEditingController _plateThickness = TextEditingController();
    final TextEditingController _weldThickness = TextEditingController();
    final TextEditingController _WidthWeld = TextEditingController();
-
+   int isFilletWeld = 0;
+   bool levelB = true;
+   bool levelC = false;
+   bool levelD = false;
   void _submitForm(GradingController gradingController) {
     final formModel = FormModel(
-      weldType: "d", 
+      filletWeld: isFilletWeld, 
       t: _plateThickness.text, 
       a: _weldThickness.text, 
       b: _WidthWeld.text, 
-      level: ""
+      levelB: levelB,
+      levelC: levelC,
+      levelD: levelD
     );
-    gradingController.setData(formModel);
+    gradingController.calculateResults(formModel);
   }
 
   @override
@@ -61,9 +66,9 @@ class _MainViewState extends State<MainView> {
                   ),
                 ),
                 Radio(
-                  value: "Fillet",
+                  value: 1,
                   groupValue: "",
-                  onChanged: (value) {},
+                  onChanged: (value) {isFilletWeld = int.parse(value.toString());}, //fix this
                   activeColor: Color(0xff43e83a),
                   autofocus: false,
                   splashRadius: 20,
@@ -88,9 +93,9 @@ class _MainViewState extends State<MainView> {
                   ),
                 ),
                 Radio(
-                  value: "",
+                  value: 0,
                   groupValue: "",
-                  onChanged: (value) {},
+                  onChanged: (value) {isFilletWeld = int.parse(value.toString());},
                   activeColor: Color(0xff4ce83a),
                   autofocus: false,
                   splashRadius: 20,
@@ -314,7 +319,7 @@ class _MainViewState extends State<MainView> {
             SwitchListTile(
               value: true,
               title: Text(
-                "B",
+                "B",  
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontStyle: FontStyle.normal,
@@ -327,7 +332,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: (value) {levelB = value;},
               tileColor: Color(0x1f000000),
               activeColor: Color(0xff3a57e8),
               activeTrackColor: Color(0xff92c6ef),
@@ -336,11 +341,11 @@ class _MainViewState extends State<MainView> {
               inactiveThumbColor: Color(0xff9e9e9e),
               inactiveTrackColor: Color(0xffe0e0e0),
               contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-              selected: false,
+              selected: true,
               selectedTileColor: Color(0x42000000),
             ),
             SwitchListTile(
-              value: true,
+              value: false,
               title: Text(
                 "C",
                 style: TextStyle(
@@ -355,7 +360,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: (value) {levelC = value;},
               tileColor: Color(0x1f000000),
               activeColor: Color(0xff3a57e8),
               activeTrackColor: Color(0xff62ed2b),
@@ -368,7 +373,7 @@ class _MainViewState extends State<MainView> {
               selectedTileColor: Color(0x42000000),
             ),
             SwitchListTile(
-              value: true,
+              value: false,
               title: const Text(
                 "D",
                 style: TextStyle(
@@ -383,7 +388,7 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {},
+              onChanged: (value) {levelD = value;},
               tileColor: const Color(0x1f000000),
               activeColor: const Color(0xff3a57e8),
               activeTrackColor: const Color(0xff58e84c),
