@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../controllers/misc_controller.dart';
-import '../widgets/BottomNavBar.dart';
-import '../widgets/navbar_widget.dart';
 
 class MiscView extends StatefulWidget {
+  const MiscView({super.key});
+
   //final MiscController controller;
 
   //MiscView({Key? key, required this.controller}) : super(key: key);
@@ -19,14 +19,14 @@ class _MiscViewState extends State<MiscView> {
     final miscController = Provider.of<MiscController>(context);
 
     return Scaffold(
-        backgroundColor: Color(0xffffffff),
+        backgroundColor: const Color(0xffffffff),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Terms and definitions:",
@@ -40,7 +40,7 @@ class _MiscViewState extends State<MiscView> {
                   ),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Short imperfections: ",
@@ -54,7 +54,7 @@ class _MiscViewState extends State<MiscView> {
                   ),
                 ),
               ),
-              Text(
+              const Text(
                 "In cases when the weld is 100 mm long or longer, imperfections are considered to be short imperfections if, in the 100 mm which contains the greatest number of imperfections, their total length is not greater than 25 mm. In cases when the weld is less than 100 mm long, imperfections are considered to be short imperfections if their total length is not greater than 25 %.",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -65,7 +65,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Symbols:",
@@ -79,7 +79,7 @@ class _MiscViewState extends State<MiscView> {
                   ),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment(-0.8, 0.0),
                 child: Text(
                   "a",
@@ -93,7 +93,7 @@ class _MiscViewState extends State<MiscView> {
                   ),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment(-0.8, 0.0),
                 child: Text(
                   "Nominal throat thickness of the fillet weld",
@@ -107,7 +107,7 @@ class _MiscViewState extends State<MiscView> {
                   ),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -118,7 +118,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -129,7 +129,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -140,7 +140,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -151,7 +151,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -162,7 +162,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "Text",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -173,7 +173,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Text(
+              const Text(
                 "α",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
@@ -184,7 +184,7 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Calculate a to z:",
@@ -203,7 +203,7 @@ class _MiscViewState extends State<MiscView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(
+                  const Text(
                     "z:",
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.clip,
@@ -221,7 +221,7 @@ class _MiscViewState extends State<MiscView> {
                       obscureText: false,
                       textAlign: TextAlign.start,
                       maxLines: 1,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: 14,
@@ -231,36 +231,36 @@ class _MiscViewState extends State<MiscView> {
                         disabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         hintText: "Enter Text",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontWeight: FontWeight.w400,
                           fontStyle: FontStyle.normal,
                           fontSize: 14,
                           color: Color(0xff000000),
                         ),
                         filled: true,
-                        fillColor: Color(0xfff2f2f3),
+                        fillColor: const Color(0xfff2f2f3),
                         isDense: false,
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                            const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                       ),
                     ),
                   ),
                 ],
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Calculate z to a:",
@@ -279,7 +279,7 @@ class _MiscViewState extends State<MiscView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text(
+                  const Text(
                     "a:",
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.clip,
@@ -297,7 +297,7 @@ class _MiscViewState extends State<MiscView> {
                       obscureText: false,
                       textAlign: TextAlign.start,
                       maxLines: 1,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: 14,
@@ -307,43 +307,43 @@ class _MiscViewState extends State<MiscView> {
                         disabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide:
-                              BorderSide(color: Color(0xff000000), width: 1),
+                              const BorderSide(color: Color(0xff000000), width: 1),
                         ),
                         hintText: "Enter Text",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                           fontWeight: FontWeight.w400,
                           fontStyle: FontStyle.normal,
                           fontSize: 14,
                           color: Color(0xff000000),
                         ),
                         filled: true,
-                        fillColor: Color(0xfff2f2f3),
+                        fillColor: const Color(0xfff2f2f3),
                         isDense: false,
                         contentPadding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                            const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                       ),
                     ),
                   ),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: Color(0xffffffff),
                 height: 25,
                 thickness: 1,
                 indent: 0,
                 endIndent: 0,
               ),
-              Text(
+              const Text(
                 "Idea and resources: Martin Christoffersen LinkedIn logo +4553606219",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,

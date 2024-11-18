@@ -5,7 +5,7 @@ import '../controllers/counter_controller.dart';
 class CounterView extends StatefulWidget {
   final CounterController controller;
 
-  CounterView({Key? key, required this.controller}) : super(key: key);
+  const CounterView({Key? key, required this.controller}) : super(key: key);
 
   @override
   _CounterViewState createState() => _CounterViewState();
@@ -16,7 +16,7 @@ class _CounterViewState extends State<CounterView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MVC Counter"),
+        title: const Text("MVC Counter"),
       ),
       body: Center(
         child: Text(

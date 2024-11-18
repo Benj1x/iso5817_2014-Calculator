@@ -24,6 +24,7 @@ String? DCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
+    return null;
 }
 
 /// Get Crater Crack grade
@@ -34,6 +35,7 @@ String? DCraterCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
+    return null;
 }
 
 /// Calculate Surface Pore
@@ -60,6 +62,7 @@ String? DEndCraterPipe(double t) {
     if (t > 3) {
         return "*h <= ${(0.2 * t).toStringAsFixed(1)}";
     }
+    return null;
 
 }
 
@@ -109,6 +112,7 @@ String? DShrinkageGroove(double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${(0.2 * t).toStringAsFixed(1)} (max 2 mm)";
     }
+    return null;
 }
 
 /// Calculate Excess weld metal
@@ -140,6 +144,7 @@ String? DExcessPenetration(double b, double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${(1.0 + 0.6 * b).toStringAsFixed(1)}";
     }
+    return null;
 }
 
 /// Gets the acceptable angle for the weld toe
@@ -168,6 +173,7 @@ String? DNonFilledWeld(double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${(0.25 * t).toStringAsFixed(1)}*";
     }
+    return null;
 }
 
 ///Gennembrænding/Burn through
@@ -194,6 +200,7 @@ String? DRootConcavity(double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${(0.2 + 0.1 * t).toStringAsFixed(1)}";
     }
+    return null;
 }
 
 /// Calculate Root porosity
@@ -230,6 +237,7 @@ String? DInsufficientThroatThickness(double a, double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= ${(0.2 + 0.1 * a).toStringAsFixed(1)}*";
     }
+    return null;
 }
 
 /// Calculate Excessive Throat Thickness
@@ -247,6 +255,7 @@ String? DStrayArc(double t) {
     if (t <= 0.5) {
         return "Tilladt, hvis egenskaberne I grundmaterialet ikke påvirkes. / Permitted if the properties of the parent metal are not affected";
     }
+    return null;
 }
 
 /// Calculate Spatter
@@ -257,6 +266,7 @@ String? DSpatter(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse / Acceptance depends on application, e.g. material, corrosion protection";
     }
+    return null;
 }
 
 /// Calculate Tempercolour
@@ -284,6 +294,7 @@ String? DLinearMisalignment(double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= ${(0.2 + 0.25 * t).toStringAsFixed(1)}";
     }
+    return null;
 }
 
 /// Calculate Incorrect root gap or fillet welds.
@@ -298,4 +309,5 @@ String? DIncorrectRootGapOrFilletWelds(double a, double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= ${(1 + 0.3 * a).toStringAsFixed(1)} (max 4 mm)";
     }
+    return null;
 }

@@ -2,23 +2,21 @@
 import 'package:flutter/material.dart';
 import 'package:iso5817_2014/controllers/grading_controller.dart';
 import 'package:iso5817_2014/models/grading_model.dart';
-import 'package:iso5817_2014/views/grading_view.dart';
 import 'package:iso5817_2014/views/main_view.dart';
 import 'package:iso5817_2014/views/miscellaneous.dart';
 import 'package:iso5817_2014/widgets/navbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'controllers/misc_controller.dart';
 import 'controllers/navbar_controller.dart';
-import 'models/counter_model.dart';
-import 'controllers/counter_controller.dart';
 import 'models/misc_model.dart';
-import 'views/counter_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final GradingModel gradeModel = GradingModel();
@@ -35,11 +33,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage())
+      home: const MainPage())
     );
   }
 }
 class MainPage extends StatelessWidget {
+  const MainPage({super.key});
+
   void _onNavbarItemTapped(int index, NavbarController navBarController) {
     navBarController.pageController.jumpToPage(index);
     navBarController.onItemTapped(index);
@@ -55,7 +55,7 @@ class MainPage extends StatelessWidget {
         onPageChanged: (index) {
           navBarController.onItemTapped(index);
         },
-        children: [
+        children: const [
           MainView(),
           MiscView()
         ],

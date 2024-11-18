@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iso5817_2014/models/form_model.dart';
 import 'package:provider/provider.dart';
-//import '../controllers/weld_controller.dart';
 import '../controllers/grading_controller.dart';
-import '../widgets/navbar_widget.dart';
 
 class MainView extends StatefulWidget {
+  const MainView({super.key});
+
   @override
   _MainViewState createState() => _MainViewState();
 }
@@ -14,8 +14,8 @@ class _MainViewState extends State<MainView> {
 
    final TextEditingController _plateThickness = TextEditingController();
    final TextEditingController _weldThickness = TextEditingController();
-   final TextEditingController _WidthWeld = TextEditingController();
-   int isFilletWeld = 0;
+   final TextEditingController _widthWeld = TextEditingController();
+   bool isFilletWeld = true;
    bool levelB = true;
    bool levelC = false;
    bool levelD = false;
@@ -24,7 +24,7 @@ class _MainViewState extends State<MainView> {
       filletWeld: isFilletWeld, 
       t: _plateThickness.text, 
       a: _weldThickness.text, 
-      b: _WidthWeld.text, 
+      b: _widthWeld.text, 
       levelB: levelB,
       levelC: levelC,
       levelD: levelD
@@ -36,7 +36,7 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     final gradingController = Provider.of<GradingController>(context);
     return Scaffold(
-        backgroundColor: Color(0xffffffff),
+        backgroundColor: const Color(0xffffffff),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,59 +49,67 @@ class _MainViewState extends State<MainView> {
               indent: 0,
               endIndent: 0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Text(
-                  "Fillet weld",
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.clip,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff000000),
-                  ),
+              RadioListTile(
+              value: true,
+              groupValue: isFilletWeld,
+              title: const Text(
+                "Fillet Weld",  
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14,
+                  color: Color(0xff000000),
                 ),
-                Radio(
-                  value: 1,
-                  groupValue: "",
-                  onChanged: (value) {isFilletWeld = int.parse(value.toString());}, //fix this
-                  activeColor: Color(0xff43e83a),
-                  autofocus: false,
-                  splashRadius: 20,
-                  hoverColor: Color(0x42000000),
-                ),
-              ],
+                textAlign: TextAlign.start,
+              ),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+                side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
+              ),
+              onChanged: (value) 
+              {
+                setState(() {
+                isFilletWeld = value!;
+
+              });},
+              tileColor: const Color(0x1f000000),
+              activeColor: const Color(0xff3a57e8),
+              controlAffinity: ListTileControlAffinity.trailing,
+              dense: false,
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+              selected: true,
+              selectedTileColor: const Color(0x42000000),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const Text(
-                  "Butt weld",
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.clip,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff000000),
-                  ),
+            RadioListTile(
+              value: false,
+              groupValue: isFilletWeld,
+              title: const Text(
+                "Butt Weld",  
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 14,
+                  color: Color(0xff000000),
                 ),
-                Radio(
-                  value: 0,
-                  groupValue: "",
-                  onChanged: (value) {isFilletWeld = int.parse(value.toString());},
-                  activeColor: Color(0xff4ce83a),
-                  autofocus: false,
-                  splashRadius: 20,
-                  hoverColor: Color(0x42000000),
-                ),
-              ],
+                textAlign: TextAlign.start,
+              ),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+                side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
+              ),
+              onChanged: (value) 
+              {
+                setState(() {
+                isFilletWeld = value!;
+
+              });},
+              tileColor: const Color(0x1f000000),
+              activeColor: const Color(0xff3a57e8),
+              controlAffinity: ListTileControlAffinity.trailing,
+              dense: false,
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+              selected: true,
+              selectedTileColor: const Color(0x42000000),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -137,30 +145,30 @@ class _MainViewState extends State<MainView> {
                       disabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       enabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
-                      hintText: "Enter Text",
-                      hintStyle: TextStyle(
+                      hintText: "0",
+                      hintStyle: const TextStyle(
                         fontWeight: FontWeight.w400,
                         fontStyle: FontStyle.normal,
                         fontSize: 14,
                         color: Color(0xff000000),
                       ),
                       filled: true,
-                      fillColor: Color(0xfff2f2f3),
+                      fillColor: const Color(0xfff2f2f3),
                       isDense: false,
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                          const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     ),
                   ),
                 ),
@@ -200,17 +208,17 @@ class _MainViewState extends State<MainView> {
                       disabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       enabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       hintText: "0",
                       hintStyle: const TextStyle(
@@ -220,10 +228,10 @@ class _MainViewState extends State<MainView> {
                         color: Color(0xff000000),
                       ),
                       filled: true,
-                      fillColor: Color(0xfff2f2f3),
+                      fillColor: const Color(0xfff2f2f3),
                       isDense: false,
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                          const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     ),
                   ),
                 ),
@@ -248,7 +256,7 @@ class _MainViewState extends State<MainView> {
                 Expanded(
                   flex: 1,
                   child: TextField(
-                    controller: _WidthWeld,
+                    controller: _widthWeld,
                     obscureText: false,
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.start,
@@ -263,17 +271,17 @@ class _MainViewState extends State<MainView> {
                       disabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       enabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            BorderSide(color: Color(0xff000000), width: 1),
+                            const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       hintText: "0",
                       hintStyle: const TextStyle(
@@ -283,10 +291,10 @@ class _MainViewState extends State<MainView> {
                         color: Color(0xff000000),
                       ),
                       filled: true,
-                      fillColor: Color(0xfff2f2f3),
+                      fillColor: const Color(0xfff2f2f3),
                       isDense: false,
                       contentPadding:
-                          EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                          const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     ),
                   ),
                 ),
@@ -317,8 +325,8 @@ class _MainViewState extends State<MainView> {
               ),
             ),
             SwitchListTile(
-              value: true,
-              title: Text(
+              value: levelB,
+              title: const Text(
                 "B",  
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -328,25 +336,34 @@ class _MainViewState extends State<MainView> {
                 ),
                 textAlign: TextAlign.start,
               ),
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {levelB = value;},
-              tileColor: Color(0x1f000000),
-              activeColor: Color(0xff3a57e8),
-              activeTrackColor: Color(0xff92c6ef),
+              onChanged: (value) 
+              {
+                setState(() {
+                levelB = value;
+                if (value == true) {
+                  levelC = !value;
+                  levelD = !value;
+                }
+
+              });},
+              tileColor: const Color(0x1f000000),
+              activeColor: const Color(0xff3a57e8),
+              activeTrackColor: const Color(0xff92c6ef),
               controlAffinity: ListTileControlAffinity.trailing,
               dense: false,
-              inactiveThumbColor: Color(0xff9e9e9e),
-              inactiveTrackColor: Color(0xffe0e0e0),
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+              inactiveThumbColor: const Color(0xff9e9e9e),
+              inactiveTrackColor: const Color(0xffe0e0e0),
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               selected: true,
-              selectedTileColor: Color(0x42000000),
+              selectedTileColor: const Color(0x42000000),
             ),
             SwitchListTile(
-              value: false,
-              title: Text(
+              value: levelC,
+              title: const Text(
                 "C",
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -356,24 +373,32 @@ class _MainViewState extends State<MainView> {
                 ),
                 textAlign: TextAlign.start,
               ),
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {levelC = value;},
-              tileColor: Color(0x1f000000),
-              activeColor: Color(0xff3a57e8),
-              activeTrackColor: Color(0xff62ed2b),
+              onChanged: (value) 
+              {
+                setState(() {
+                levelC = value;
+                if (value == true) {
+                  levelB = !value;
+                  levelD = !value;
+                }
+              });},
+              tileColor: const Color(0x1f000000),
+              activeColor: const Color(0xff3a57e8),
+              activeTrackColor: const Color(0xff62ed2b),
               controlAffinity: ListTileControlAffinity.trailing,
               dense: false,
-              inactiveThumbColor: Color(0xff9e9e9e),
-              inactiveTrackColor: Color(0xffe0e0e0),
-              contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+              inactiveThumbColor: const Color(0xff9e9e9e),
+              inactiveTrackColor: const Color(0xffe0e0e0),
+              contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               selected: false,
-              selectedTileColor: Color(0x42000000),
+              selectedTileColor: const Color(0x42000000),
             ),
             SwitchListTile(
-              value: false,
+              value: levelD,
               title: const Text(
                 "D",
                 style: TextStyle(
@@ -388,7 +413,15 @@ class _MainViewState extends State<MainView> {
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0x4d9e9e9e), width: 1),
               ),
-              onChanged: (value) {levelD = value;},
+              onChanged: (value) 
+              {
+                setState(() {
+                levelD = value;
+                if (value == true) {
+                  levelC = !value;
+                  levelB = !value;
+                } 
+              });},
               tileColor: const Color(0x1f000000),
               activeColor: const Color(0xff3a57e8),
               activeTrackColor: const Color(0xff58e84c),
@@ -402,14 +435,14 @@ class _MainViewState extends State<MainView> {
             ),
             MaterialButton(
               onPressed: () => _submitForm(gradingController),
-              color: Color(0xffffffff),
+              color: const Color(0xffffffff),
               elevation: 0,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.zero,
                 side: BorderSide(color: Color(0xff808080), width: 1),
               ),
-              padding: EdgeInsets.all(16),
-              textColor: Color(0xff000000),
+              padding: const EdgeInsets.all(16),
+              textColor: const Color(0xff000000),
               height: 40,
               minWidth: 140,
               child: const Text(
@@ -421,8 +454,8 @@ class _MainViewState extends State<MainView> {
                 ),
               ),
             ),
-          ],
-        ),
+          ]
+        )
     );
   }
 }

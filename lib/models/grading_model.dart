@@ -1,18 +1,11 @@
 
-import 'dart:ffi';
-import 'dart:math';
-import 'dart:developer' as developer;
-import 'package:iso5817_2014/models/gradingB.dart';
-import 'package:iso5817_2014/models/gradingC.dart';
-import 'package:iso5817_2014/models/gradingD.dart';
-import 'package:iso5817_2014/util/gradingStruct.dart';
 import 'package:iso5817_2014/models/form_model.dart';
 
 class GradingModel
 {
-  double _plateThickness = 0.0;
-  double _weldTThickness = 0.0;
-  double _weldWidth = 0.0;
+  final double _plateThickness = 0.0;
+  final double _weldTThickness = 0.0;
+  final double _weldWidth = 0.0;
 
   bool gradeB = false;
   bool gradeC = false;

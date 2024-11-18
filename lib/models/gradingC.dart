@@ -23,6 +23,7 @@ String? CCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
+    return null;
 }
 
 /// Get Crater Crack grade
@@ -33,6 +34,7 @@ String? CCraterCrack(double t) {
     if (t >= 0.5) {
         return "Not permitted/Ikke tilladt";
     }
+    return null;
 }
 
 /// Calculate Surface Pore
@@ -115,6 +117,7 @@ String? CExcessWeldMetal(double b, double t) {
     if (t >= 0.5) {
         return "h <= ${1.0 + 0.15 * b} (max 7 mm)";
     }
+    return null;
 }
 
 /// Calculate Excessive Convexity
@@ -126,6 +129,7 @@ String? CExcessiveConvexity(double b, double t) {
     if (t >= 0.5) {
         return "h <= ${1.0 + 0.15 * b} (max 4 mm)";
     }
+    return null;
 }
 
 /// Calculate Excess penetration
@@ -140,6 +144,7 @@ String? CExcessPenetration(double b, double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${1.0 + 0.3 * b}";
     }
+    return null;
 }
 
 /// Gets the acceptable angle for the weld toe
@@ -171,6 +176,7 @@ String? CNonFilledWeld(double t) {
     if (t >= 0.5 && t <= 3) {
         return "*h <= ${0.1 * t}*";
     }
+    return null;
 }
 
 ///Gennembrænding/Burn through
@@ -187,6 +193,7 @@ String? CExcessiveAsymmetryFilletWeld(double a, double t) {
     if (t >= 0.5) {
         return "h <= ${2 + 0.15 * a}";
     }
+    return null;
 }
 
 /// Calculate Root concavity
@@ -200,6 +207,7 @@ String? CRootConcavity(double t) {
     if (t >= 0.5 && t <= 3) {
         return "h <= ${0.1 * t}*";
     }
+    return null;
 }
 
 /// Calculate Root porosity
@@ -236,6 +244,7 @@ String? CInsufficientThroatThickness(double a, double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= 0.2mm*";
     }
+    return null;
 }
 
 /// Calculate Excessive Throat Thickness
@@ -247,6 +256,7 @@ String? CExcessiveThroatThickness(double a, double t) {
     if (t <= 0.5) {
         return "h <= ${1 + 0.2 * a} (max 4 mm)";
     }
+    return null;
 }
 
 /// Calculate Stray arc
@@ -264,6 +274,7 @@ String? CSpatter(double t) {
     if (t <= 0.5) {
         return "Accept afhænger af anvendelse, fx materiale, korrosionsbeskyttelse/Acceptance depends on application, e.g. material, corrosion protection";
     }
+    return null;
 }
 
 /// Calculate Tempercolour
@@ -291,6 +302,7 @@ String? CLinearMisalignment(double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= ${0.2 + 0.15 * t}";
     }
+    return null;
 
 }
 
@@ -306,4 +318,5 @@ String? CIncorrectRootGapOrFilletWelds(double a, double t) {
     if (t <= 0.5 && t > 3) {
         return "h <= ${0.3 + 0.1 * a}";
     }
+    return null;
 }

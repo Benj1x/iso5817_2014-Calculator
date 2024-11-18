@@ -1,6 +1,5 @@
 // lib/controllers/counter_controller.dart
 import '../models/counter_model.dart';
-import 'package:iso5817_2014/util/gradingStruct.dart';
 class CounterController {
   final CounterModel _model;
 

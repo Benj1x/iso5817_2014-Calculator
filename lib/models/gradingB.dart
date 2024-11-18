@@ -1,7 +1,6 @@
 //CHECK REMARKS VED ALLE
 //Gå igennem alle formler, og sørg for at alle er der OG ingen mangler
 /*I needed a way to recognize when one result start, and one ends, realistically the performance doesn't matter too much*/
-import 'dart:ffi';
 import 'package:iso5817_2014/util/gradingStruct.dart';
 class gradingB{
 //**dawad */

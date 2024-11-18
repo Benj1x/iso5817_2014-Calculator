@@ -1,8 +1,8 @@
 class MiscModel
 {
-  double _plateThickness = 0.0;
-  double _weldTThickness = 0.0;
-  double _weldWidth = 0.0;
+  final double _plateThickness = 0.0;
+  final double _weldTThickness = 0.0;
+  final double _weldWidth = 0.0;
 
   bool gradeB = false;
   bool gradeC = false;

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:iso5817_2014/controllers/grading_controller.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/navbar_widget.dart';
 
 class GradingView extends StatefulWidget {
+  const GradingView({super.key});
+
   //final GradingController controller;
 
   //GradingView({Key? key, required this.controller}) : super(key: key);
@@ -22,7 +23,7 @@ class _GradingViewState extends State<GradingView> {
           elevation: 4,
           centerTitle: false,
           automaticallyImplyLeading: false,
-          backgroundColor: Color(0xff3a57e8),
+          backgroundColor: const Color(0xff3a57e8),
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
           ),

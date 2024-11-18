@@ -7,7 +7,7 @@ class NavbarWidget extends StatelessWidget {
   final Function(int) onItemTapped;
   final PageController pageController;
 
-  NavbarWidget({required this.onItemTapped, required this.pageController});
+  const NavbarWidget({super.key, required this.onItemTapped, required this.pageController});
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class NavbarWidget extends StatelessWidget {
             ],
             elevation: 8,
             iconSize: 24,
-            selectedItemColor: Color(0xff3a57e8),
-            unselectedItemColor: Color(0xff9e9e9e),
+            selectedItemColor: const Color(0xff3a57e8),
+            unselectedItemColor: const Color(0xff9e9e9e),
             selectedFontSize: 14,
             unselectedFontSize: 14,
             showSelectedLabels: true,
