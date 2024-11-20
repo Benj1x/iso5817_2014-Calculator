@@ -16,15 +16,22 @@ class GradingModel
 
   bool _isFilletWeld = true;
 
-  bool gradeB = false;
-  bool gradeC = false;
-  bool gradeD = false;
+  bool _gradeB = false;
+  bool _gradeC = false;
+  bool _gradeD = false;
 
-  
+  Gradingstruct? _grades;
 
   double get plateThickness => _plateThickness;
   double get weldTThickness => _weldTThickness;
   double get weldWidth => _weldWidth;
+
+  bool get gradeB => _gradeB;
+  bool get gradeC => _gradeC;
+  bool get gradeD => _gradeD;
+
+  Gradingstruct? get grades => _grades;
+  
   double setCounter() {
     return _weldTThickness;
   }
@@ -34,22 +41,24 @@ class GradingModel
     _plateThickness = formModel.t;
     _weldTThickness = formModel.a;
     _weldWidth = formModel.b;
+    _gradeB = formModel.levelB;
+    _gradeC = formModel.levelC;
+    _gradeD = formModel.levelD;
   }
-  Gradingstruct calcData()
+  void calcData()
   {
    
     if(gradeB)
     {
-      return BGrading(_weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
+      //_grades = BGrading(_weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
     }
     else if (gradeC)
     {
-      return CGrading(0.0, _weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
+      _grades = CGrading(0.0, _weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
     }
     else if (gradeC)
     {
-      return DGrading(0.0, _weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
+      _grades = DGrading(0.0, _weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
     }
-    return new Gradingstruct();
   }
 }

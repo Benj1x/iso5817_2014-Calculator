@@ -22,9 +22,9 @@ class _MainViewState extends State<MainView> {
   void _submitForm(GradingController gradingController) {
     final formModel = FormModel(
       filletWeld: isFilletWeld, 
-      t: _plateThickness.text, 
-      a: _weldThickness.text, 
-      b: _widthWeld.text, 
+      t: double.parse(_plateThickness.text), 
+      a: double.parse(_weldThickness.text), 
+      b: double.parse(_widthWeld.text), 
       levelB: levelB,
       levelC: levelC,
       levelD: levelD
@@ -434,7 +434,10 @@ class _MainViewState extends State<MainView> {
               selectedTileColor: const Color(0x42000000),
             ),
             MaterialButton(
-              onPressed: () => _submitForm(gradingController),
+              onPressed: (){ 
+                _submitForm(gradingController);
+                gradingController.navigateToGradingView(context);
+              },
               color: const Color(0xffffffff),
               elevation: 0,
               shape: const RoundedRectangleBorder(

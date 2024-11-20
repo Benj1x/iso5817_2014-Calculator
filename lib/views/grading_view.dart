@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:iso5817_2014/controllers/grading_controller.dart';
+import 'package:iso5817_2014/util/gradingStruct.dart';
 import 'package:provider/provider.dart';
 
 
 class GradingView extends StatefulWidget {
-  const GradingView({super.key});
+  //const GradingView({super.key});
 
   //final GradingController controller;
-
-  //GradingView({Key? key, required this.controller}) : super(key: key);
+  final Gradingstruct? grades;
+  const GradingView({Key? key, required this.grades}) : super(key: key);
 
   @override
   _GradingViewState createState() => _GradingViewState();
