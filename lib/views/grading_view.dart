@@ -19,36 +19,114 @@ class _GradingViewState extends State<GradingView> {
 
     // Dynamically map fields from Gradingstruct into a list of items
     final items = {
-      "Crack": widget.grades?.Crack,
-      "Crater Crack": widget.grades?.CraterCrack,
-      "Surface Pore": widget.grades?.SurfacePore,
-      "End Crater Pipe": widget.grades?.EndCraterPipe,
-      "Lack of Fusion": widget.grades?.LackOfFusion,
-      "MLack of Fusion": widget.grades?.MLackOfFusion,
-      "Incomplete R Penetration": widget.grades?.IncompleteRPen,
-      "Inter-Ucut": widget.grades?.InterUcut,
-      "Shrink Groove": widget.grades?.ShrinkGroove,
-      "Excess Weld": widget.grades?.ExcessWeld,
-      "Excess Convexity": widget.grades?.ExcessConvex,
-      "Excess Penetration": widget.grades?.ExcessPen,
-      "Incorrect Weld Toe": widget.grades?.IncorrectWToe,
-      "Overlap": widget.grades?.Overlap,
-      "Non-Fusion Weld": widget.grades?.NonFW,
-      "Burn Through": widget.grades?.BurnThrough,
-      "Excess Asymmetric Fusion Weld": widget.grades?.ExcessAsymmFW,
-      "Root Concavity": widget.grades?.RootConcav,
-      "Root Porosity": widget.grades?.RootPoro,
-      "Poor Start": widget.grades?.PoorStart,
-      "Insufficient Throat Thickness": widget.grades?.InsuffTT,
-      "Excess Throat Thickness": widget.grades?.ExcessTT,
-      "Stray Arc": widget.grades?.StrayArc,
-      "Spatter": widget.grades?.Spatter,
-      "Temper Colour": widget.grades?.TemperColour,
-      "Linear Misalignment": widget.grades?.LinearMis,
-      "Incorrect Root Gap or Fusion Weld": widget.grades?.IncorrRootGapOrFW,
+      "Crack": {
+        "content": widget.grades?.Crack,
+      },
+      "Crater Crack":{
+        "content": widget.grades?.CraterCrack,
+        "image": "assets/images/CraterCrack.png"
+      },
+      "Surface Pore":{
+        "content": widget.grades?.SurfacePore,
+        "image": "assets/images/ExcessAsymmFW.png"
+      },
+      "End Crater Pipe": {
+        "content": widget.grades?.EndCraterPipe,
+        "image": "assets/images/EndCraterPipe.png"
+
+      },
+      "Lack of Fusion": {
+        "content": widget.grades?.LackOfFusion,
+      },
+      "MLack of Fusion": {
+        "content": widget.grades?.MLackOfFusion,
+      },
+      "Incomplete R Penetration": {
+        "content": widget.grades?.IncompleteRPen,
+        "image": "assets/images/IncompleteRPen.png"
+      },
+      "Inter-Ucut": {
+        "content": widget.grades?.InterUcut,
+        "image": "assets/images/InterUcut.png"
+      },
+      "Shrink Groove": {
+        "content": widget.grades?.ShrinkGroove,
+        "image": "assets/images/ShrinkGroove.png"
+      },
+      "Excess Weld": {
+        "content": widget.grades?.ExcessWeld,
+        "image": "assets/images/ExcessWeld.png"
+      },
+      "Excess Convexity": {
+        "content": widget.grades?.ExcessConvex,
+        "image": "assets/images/ExcessConvex.png"
+      },
+      "Excess Penetration": {
+        "content": widget.grades?.ExcessPen,
+        "image": "assets/images/ExcessPen.png"
+      },
+      "Incorrect Weld Toe": {
+        "content": widget.grades?.IncorrectWToe,
+        "image": "assets/images/IncorrectWToe.png"
+      },
+      "Overlap": {
+        "content": widget.grades?.Overlap,
+        "image": "assets/images/Overlap.png"
+      },
+      "Non-Fusion Weld": {
+        "content": widget.grades?.NonFW,
+        "image": "assets/images/NonFW.png"
+      },
+      "Burn Through": {
+        "content": widget.grades?.BurnThrough,
+      },
+      "Excess Asymmetric Fusion Weld": {
+        "content": widget.grades?.ExcessAsymmFW,
+        "image": "assets/images/ExcessAsymmFW.png"
+      },
+      "Root Concavity": {
+        "content": widget.grades?.RootConcav,
+        "image": "assets/images/RootConcav.png"
+      },
+      "Root Porosity": {
+        "content": widget.grades?.RootPoro,
+      },
+      "Poor Start": {
+        "content": widget.grades?.PoorStart,
+      },
+      "Insufficient Throat Thickness": {
+        "content": widget.grades?.InsuffTT,
+        "image": "assets/images/InsuffTT.png"
+      },
+      "Excess Throat Thickness": {
+        "content": widget.grades?.ExcessTT,
+        "image": "assets/images/ExcessTT.png"
+      },
+      "Stray Arc": {
+        "content": widget.grades?.StrayArc,
+      },
+      "Spatter": {
+        "content": widget.grades?.Spatter,
+      },
+      "Temper Colour": {
+        "content": widget.grades?.TemperColour,
+      },
+      "Linear Misalignment": {
+        "content": widget.grades?.LinearMis,
+      },
+      "Incorrect Root Gap or Fusion Weld": {
+        "content": widget.grades?.IncorrRootGapOrFW,
+        "image": "assets/images/IncorrRootGapOrFW.png"
+      }
     }.entries
-        .where((entry) => entry.value != null && entry.value!.isNotEmpty)
-        .map((entry) => {"title": entry.key, "content": entry.value!})
+        .where((entry) =>
+    entry.value["content"] != null &&
+        entry.value["content"]!.isNotEmpty)
+        .map((entry) => {
+      "title": entry.key,
+      "content": entry.value["content"]!,
+      "image": entry.value["image"]
+    })
         .toList();
 
     return Scaffold(
@@ -69,10 +147,13 @@ class _GradingViewState extends State<GradingView> {
             color: Color(0xff000000),
           ),
         ),
-        leading: const Icon(
-          Icons.arrow_back,
+        leading: IconButton(
           color: Color(0xff212435),
-          size: 24,
+          iconSize: 24,
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {  gradingController.navigateFromGradingView(context);},
+
+
         ),
       ),
       body: ListView.builder(
@@ -83,6 +164,7 @@ class _GradingViewState extends State<GradingView> {
           return CollapsibleWidget(
             title: item["title"]!,
             content: item["content"]!,
+            imagePath: item["image"], // Pass image path dynamically
           );
         },
       ),
@@ -92,11 +174,13 @@ class _GradingViewState extends State<GradingView> {
 class CollapsibleWidget extends StatefulWidget {
   final String title;
   final String content;
+  final String? imagePath;
 
   const CollapsibleWidget({
     Key? key,
     required this.title,
     required this.content,
+    this.imagePath,
   }) : super(key: key);
 
   @override
@@ -125,9 +209,23 @@ class _CollapsibleWidgetState extends State<CollapsibleWidget> {
           height: _isExpanded ? null : 0,
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
-            child: Text(
-              widget.content,
-              style: TextStyle(fontSize: 16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (widget.imagePath != null) // Check if image is provided
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Image.asset(
+                      widget.imagePath!,
+                      fit: BoxFit.cover,
+                      height: 150, // Adjust as necessary
+                    ),
+                  ),
+                Text(
+                  widget.content,
+                  style: const TextStyle(fontSize: 16.0),
+                ),
+              ],
             ),
           ),
         ),

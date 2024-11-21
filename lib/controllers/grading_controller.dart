@@ -6,6 +6,7 @@ import 'package:iso5817_2014/util/gradingStruct.dart';
 import 'package:iso5817_2014/views/grading_view.dart';
 
 import '../models/grading_model.dart';
+import '../views/main_view.dart';
 
 class GradingController with ChangeNotifier{
   final GradingModel _model;
@@ -40,9 +41,16 @@ class GradingController with ChangeNotifier{
   } else {
     // Handle null grades if necessary.
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('!Grades are not calculated yet!')),
+      const SnackBar(content: Text('!Grades are not calculated yet!')),
+    );
+  }}
+  void navigateFromGradingView(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MainView(),
+      ),
     );
   }
-}
 
 }

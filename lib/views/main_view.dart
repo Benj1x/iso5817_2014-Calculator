@@ -20,6 +20,9 @@ class _MainViewState extends State<MainView> {
    bool levelC = false;
    bool levelD = false;
   void _submitForm(GradingController gradingController) {
+    if (!isFilletWeld){
+      _plateThickness.text = "0.0";
+    }
     final formModel = FormModel(
       filletWeld: isFilletWeld, 
       t: double.parse(_plateThickness.text), 
@@ -111,7 +114,7 @@ class _MainViewState extends State<MainView> {
               selected: true,
               selectedTileColor: const Color(0x42000000),
             ),
-            Row(
+            Visibility(visible: isFilletWeld, child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
@@ -136,26 +139,26 @@ class _MainViewState extends State<MainView> {
                     maxLines: 1,
                     keyboardType: TextInputType.number,
                     style: const TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      color: Color(0xff000000)
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 14,
+                        color: Color(0xff000000)
                     ),
                     decoration: InputDecoration(
                       disabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            const BorderSide(color: Color(0xff000000), width: 1),
+                        const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            const BorderSide(color: Color(0xff000000), width: 1),
+                        const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       enabledBorder: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(4.0),
                         borderSide:
-                            const BorderSide(color: Color(0xff000000), width: 1),
+                        const BorderSide(color: Color(0xff000000), width: 1),
                       ),
                       hintText: "0",
                       hintStyle: const TextStyle(
@@ -168,11 +171,12 @@ class _MainViewState extends State<MainView> {
                       fillColor: const Color(0xfff2f2f3),
                       isDense: false,
                       contentPadding:
-                          const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                     ),
                   ),
                 ),
               ],
+            ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,

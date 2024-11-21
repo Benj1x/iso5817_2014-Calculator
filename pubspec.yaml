@@ -60,7 +60,23 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    -  assets/images/CraterCrack.png
+    -  assets/images/EndCraterPipe.png
+    -  assets/images/ExcessAsymmFW.png
+    -  assets/images/ExcessConvex.png
+    -  assets/images/ExcessPen.png
+    -  assets/images/ExcessTT.png
+    -  assets/images/ExcessWeld.png
+    -  assets/images/IncompleteRPen.png
+    -  assets/images/IncorrectWToe.png
+    -  assets/images/IncorrRootGapOrFW.png
+    -  assets/images/InsuffTT.png
+    -  assets/images/InterUcut.png
+    -  assets/images/NonFW.png
+    -  assets/images/Overlap.png
+    -  assets/images/RootConcav.png
+    -  assets/images/ShrinkGroove.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
