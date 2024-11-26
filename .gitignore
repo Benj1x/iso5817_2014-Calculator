@@ -4,3 +4,8 @@
 /.dart_tool
 /windows
 /linux
+.idea/misc.xml
+.idea/libraries/Dart_Packages.xml
+.dart_tool/version
+.dart_tool/package_config_subset
+.dart_tool/package_config.json
