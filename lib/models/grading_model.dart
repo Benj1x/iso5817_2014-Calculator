@@ -50,7 +50,7 @@ class GradingModel
    
     if(gradeB)
     {
-      //_grades = BGrading(_weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
+      _grades = BGrading(0.0, _weldTThickness, _plateThickness, _weldWidth, _isFilletWeld);
     }
     else if (gradeC)
     {

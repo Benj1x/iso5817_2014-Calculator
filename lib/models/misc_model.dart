@@ -1,17 +1,19 @@
+import 'dart:math';
 class MiscModel
 {
-  final double _plateThickness = 0.0;
-  final double _weldTThickness = 0.0;
-  final double _weldWidth = 0.0;
+  final double _a = 0.0;
+  final double _z = 0.0;
 
-  bool gradeB = false;
-  bool gradeC = false;
-  bool gradeD = false;
+  double get a => _a;
+  double get z => _z;
 
-  double get plateThickness => _plateThickness;
-  double get weldTThickness => _weldTThickness;
-  double get weldWidth => _weldWidth;
-  double setCounter() {
-    return _weldTThickness;
-  }
+  // String CalculateZToA(){
+  //   return cos45*z as String;
+  // }
+
+
+  // String CalculateAToZ(double a){
+  //   return sqrt(2*a) as String;
+  // }
+
 }
