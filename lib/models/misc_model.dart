@@ -1,3 +1,4 @@
+import 'dart:math';
 class MiscModel
 {
   final double _a = 0.0;
