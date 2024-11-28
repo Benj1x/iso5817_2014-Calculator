@@ -6,15 +6,13 @@ class MiscModel
   double get a => _a;
   double get z => _z;
 
-  String CalculateZToA(){
-    //z = document.getElementById("ZValue").value;
-    return cos45*z as String;
-  }
+  // String CalculateZToA(){
+  //   return cos45*z as String;
+  // }
 
 
-String CalculateAToZ(double a){
-    //a = document.getElementById("AValue").value;
-    return sqrt(2*a) as String;
-  }
+  // String CalculateAToZ(double a){
+  //   return sqrt(2*a) as String;
+  // }
 
 }

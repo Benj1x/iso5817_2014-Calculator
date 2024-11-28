@@ -2,7 +2,6 @@
 //Gå igennem alle formler, og sørg for at alle er der OG ingen mangler
 /*I needed a way to recognize when one result start, and one ends, realistically the performance doesn't matter too much*/
 import 'package:iso5817_2014/util/gradingStruct.dart';
-class gradingB{
 //**dawad */
 Gradingstruct BGrading(double s, double a, double t, double b, bool isFilletWeld) {
     Gradingstruct grade = Gradingstruct(BCrack(t), BCraterCrack(t), BSurfacePore(), BEndCraterPipe(), BLackOfFusion(), BMicroLackOfFusion(), BIncompleteRootPenetration(),
@@ -277,7 +276,4 @@ String? BIncorrectRootGapOrFilletWelds(double t, double a) {
     }
 
     return "Out of range";
-}
-
-
 }

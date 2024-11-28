@@ -11,6 +11,6 @@ class MiscController with ChangeNotifier{
   double get z => _model.z;
 
   void setCounter() {
-    _model.setCounter();
+    //_model.setCounter();
   }
 }

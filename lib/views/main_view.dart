@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iso5817_2014/models/form_model.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 import '../controllers/grading_controller.dart';
 
 class MainView extends StatefulWidget {
@@ -136,6 +137,7 @@ class _MainViewState extends State<MainView> {
                     controller: _plateThickness,
                     obscureText: false,
                     textAlign: TextAlign.start,
+                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                     maxLines: 1,
                     keyboardType: TextInputType.number,
                     style: const TextStyle(
@@ -200,6 +202,7 @@ class _MainViewState extends State<MainView> {
                     controller: _weldThickness,
                     obscureText: false,
                     textAlign: TextAlign.start,
+                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                     maxLines: 1,
                     keyboardType: TextInputType.number,
                     style: const TextStyle(
@@ -264,6 +267,7 @@ class _MainViewState extends State<MainView> {
                     obscureText: false,
                     keyboardType: TextInputType.number,
                     textAlign: TextAlign.start,
+                    inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d*)'))],
                     maxLines: 1,
                     style: const TextStyle(
                       fontWeight: FontWeight.w400,
