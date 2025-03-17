@@ -1,4 +1,4 @@
-import 'package:iso5817_2014/util/gradingStruct.dart';
+import '../util/gradingStruct.dart';
 
 //CHECK REMARKS VED ALLE
 //Gå igennem alle formler, og sørg for at alle er der OG ingen mangler

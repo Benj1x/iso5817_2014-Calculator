@@ -1,7 +1,7 @@
 
 //import 'dart:ffi';
 
-import 'package:iso5817_2014/models/form_model.dart';
+import '../models/form_model.dart';
 
 import '../util/gradingStruct.dart';
 import 'gradingB.dart';

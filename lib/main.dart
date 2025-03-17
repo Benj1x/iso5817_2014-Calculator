@@ -1,10 +1,10 @@
 // lib/main.dart
 import 'package:flutter/material.dart';
-import 'package:iso5817_2014/controllers/grading_controller.dart';
-import 'package:iso5817_2014/models/grading_model.dart';
-import 'package:iso5817_2014/views/main_view.dart';
-import 'package:iso5817_2014/views/miscellaneous.dart';
-import 'package:iso5817_2014/widgets/navbar_widget.dart';
+import '/controllers/grading_controller.dart';
+import '/views/main_view.dart';
+import '/models/grading_model.dart';
+import 'views/miscellaneous.dart';
+import '/widgets/navbar_widget.dart';
 import 'package:provider/provider.dart';
 import 'controllers/misc_controller.dart';
 import 'controllers/navbar_controller.dart';

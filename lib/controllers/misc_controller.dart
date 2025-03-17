@@ -9,8 +9,11 @@ class MiscController with ChangeNotifier{
 
   double get a => _model.a;
   double get z => _model.z;
+  double get ZToA => _model.ZToA;
+  double get AToZ => _model.ZToA;
 
-  void setCounter() {
-    //_model.setCounter();
+  void calculate() {
+   _model.CalculateAToZ();
+   _model.CalculateZToA();
   }
 }

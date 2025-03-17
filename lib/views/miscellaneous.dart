@@ -354,6 +354,30 @@ class _MiscViewState extends State<MiscView> {
                   color: Color(0xff000000),
                 ),
               ),
+              MaterialButton(
+              onPressed: (){ 
+                miscController.(gradingController);
+                gradingController.navigateToGradingView(context);
+              },
+              color: const Color(0xffffffff),
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+                side: BorderSide(color: Color(0xff808080), width: 1),
+              ),
+              padding: const EdgeInsets.all(16),
+              textColor: const Color(0xff000000),
+              height: 40,
+              minWidth: 140,
+              child: const Text(
+                "Calculate Acceptance level",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  fontStyle: FontStyle.normal,
+                ),
+              ),
+            ),
             ],
           ),
         ),

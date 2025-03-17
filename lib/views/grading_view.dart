@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:iso5817_2014/controllers/grading_controller.dart';
-import 'package:iso5817_2014/util/gradingStruct.dart';
+import '/controllers/grading_controller.dart';
+import '/util/gradingStruct.dart';
 import 'package:provider/provider.dart';
 
 class GradingView extends StatefulWidget {

@@ -1,9 +1,9 @@
 // lib/controllers/counter_controller.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iso5817_2014/models/form_model.dart';
-import 'package:iso5817_2014/util/gradingStruct.dart';
-import 'package:iso5817_2014/views/grading_view.dart';
+import '/models/form_model.dart';
+import '/util/gradingStruct.dart';
+import '/views/grading_view.dart';
 
 import '../models/grading_model.dart';
 import '../views/main_view.dart';
