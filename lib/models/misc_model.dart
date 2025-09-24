@@ -1,26 +1,20 @@
 import 'dart:math';
-class MiscModel
-{
-  final double _a = 0.0;
-  final double _z = 0.0;
-  final double _ZToA = 0.0;
-  final double _AToZ = 0.0;
 
-  double get a => _a;
-  double get z => _z;
-  double get ZToA => _ZToA;
-  double get AToZ => _ZToA;
+class MiscModel {
+  double a;
+  double z;
 
-  void CalculateZToA(){
-    double deg = 45;
-    double rads = deg * (pi/180);
+  MiscModel({this.a = 0, this.z = 0});
 
-    _ZToA = rads*z as String;
+  // Mutating “calculations”
+  // a -> z  (z = sqrt(2 * a))
+  void calculateAToZ() {
+    z = sqrt(2 * a);
   }
 
-
-  void CalculateAToZ(){
-    _AToZ = sqrt(2*a) as String;
+  // z -> a  (a = z * sin(45°))
+  void calculateZToA() {
+    final rads = 45 * (pi / 180); // π/4
+    a = sin(rads) * z;            // ≈ 0.7071 * z
   }
-
 }
